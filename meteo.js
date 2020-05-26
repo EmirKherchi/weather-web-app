@@ -44,7 +44,7 @@ const askWeather = () => {
   if (city.value === "") {
     request.open(
       "GET",
-      "http://api.openweathermap.org/data/2.5/weather?q=Caen&APPID=e974c29f2c56ef90f6c1567c3c667fc0&units=metric&lang=fr"
+      "https://api.openweathermap.org/data/2.5/weather?q=Caen&APPID=e974c29f2c56ef90f6c1567c3c667fc0&units=metric&lang=fr"
     );
 
     request.onreadystatechange = function () {
@@ -78,7 +78,7 @@ const askWeather = () => {
   } else {
     request.open(
       "GET",
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
         city.value +
         "&APPID=e974c29f2c56ef90f6c1567c3c667fc0&units=metric&lang=fr"
     );

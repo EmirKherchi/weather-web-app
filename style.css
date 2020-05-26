@@ -1,0 +1,32 @@
+body{
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+form{
+    margin-top: 200px;
+}
+input{
+    border : none;
+    background-color: transparent;
+    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+    display: block;
+    margin: auto;
+    font-size: 32px;
+    outline: none;
+    text-align: center;
+    
+}
+
+
+#result{
+    font-size: 24px;
+    margin-top: 100px;
+    text-align: center;
+    line-height: 60px;
+}

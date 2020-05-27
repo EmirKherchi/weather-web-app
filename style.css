@@ -5,7 +5,9 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    overflow: hidden;
 }
+
 
 form{
     margin-top: 200px;
@@ -13,20 +15,38 @@ form{
 input{
     border : none;
     background-color: transparent;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgb(71, 69, 69);
     font-weight: 600;
     display: block;
     margin: auto;
     font-size: 32px;
     outline: none;
     text-align: center;
-    
+    width: 90%;
+    color: white;
+    text-shadow: 2px 2px 0px #000000;
+    text-transform: capitalize;
 }
 
 
 #result{
-    font-size: 24px;
+    font-size: 30px;
     margin-top: 100px;
     text-align: center;
     line-height: 60px;
+    color: white;
+    padding: 0 10%;
+    text-shadow: 2px 2px 0px #000000;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.fas{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 30px;
+    color: white;
+    display: none;
+    text-shadow: 1px 1px 0px #000000;
+    overflow: hidden;
 }

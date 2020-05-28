@@ -1,5 +1,5 @@
 const result = document.getElementById("result");
-const spin = document.querySelector(".fas")
+const spin = document.querySelector(".fas");
 
 //suppression de la function enter sur l'appuie de la toucher entrer
 window.addEventListener(
@@ -20,11 +20,12 @@ window.addEventListener(
 );
 
 const city = document.getElementById("city");
+
 //appel de l'api
 
 const askWeather = () => {
   const request = new XMLHttpRequest();
-  if (city.value === "") {
+  if (city.placeholder === "Caen") {
     request.open(
       "GET",
       "https://api.openweathermap.org/data/2.5/weather?q=Caen&APPID=e974c29f2c56ef90f6c1567c3c667fc0&units=metric&lang=fr"
@@ -37,12 +38,21 @@ const askWeather = () => {
         "&APPID=e974c29f2c56ef90f6c1567c3c667fc0&units=metric&lang=fr"
     );
   }
-
   request.onreadystatechange = function () {
     if (this.readyState == this.DONE && this.status == 200) {
       const response = JSON.parse(this.responseText);
+
+      result.style.display = "block";
+
       result.innerHTML =
-        response.main.temp + " °C" + " <br> " + response.weather[0].description;
+        response.main.temp +
+        " °C" +
+        " <br> " +
+        response.weather[0].description +
+        "<br>" +
+        response.name +
+        ", " +
+        response.sys.country;
 
       if (response.weather[0].main == "Clear") {
         document.body.style.backgroundImage = "url('img/clearsky.jpg')";
@@ -55,11 +65,11 @@ const askWeather = () => {
       } else if (response.weather[0].main == "Drizzle") {
         document.body.style.backgroundImage = "url('img/drizzle.jpg')";
       } else if (response.weather[0].main == "Thunderstorm") {
-        document.body.style.backgroundImage = "url('img/thunderstrom')";
+        document.body.style.backgroundImage = "url('img/thunderstrom.jpg')";
       }
-    } else if (this.readyState == this.DONE && this.status == 400) {
-      alert("Impossible de trouver la localisation");
-      result.innerHTMl = "impossible de trouver la localisation";
+    } else if (this.readyState == this.DONE && this.status == 404) {
+      result.style.display = "block";
+      result.innerHTML = "oups ! localisation inconnue";
     }
   };
 
@@ -69,9 +79,11 @@ const askWeather = () => {
 askWeather();
 
 city.addEventListener("input", function () {
+  city.placeholder = "Entrez une localisation";
   spin.style.display = "block";
+  result.style.display = "none";
   setTimeout(() => {
     spin.style.display = "none";
     askWeather();
-  }, 3000);
+  }, 7000);
 });

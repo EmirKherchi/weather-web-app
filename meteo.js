@@ -69,7 +69,7 @@ const askWeather = () => {
       }
     } else if (this.readyState == this.DONE && this.status == 404) {
       result.style.display = "block";
-      result.innerHTML = "oups ! localisation inconnue";
+      result.innerHTML = "oups! localisation inconnue";
     }
   };
 
